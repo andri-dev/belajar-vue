@@ -11,10 +11,23 @@
   <body>
     <!-- container DOM-->
     <div id="app">
-      <input type="text" v-model:value="message" />
-      <p>{{ message }}</p>
+        <div class="">
+            <input type="url" v-model:value="url" placeholder="Link Gambar" /></br>
+            <input type="text" v-model:value="caption.text" placeholder="Caption untuk image" />
+            <br />
+            Berikan caption pada atribut: 
+            <select v-model:value="caption.attr">
+              <option>title</option>
+              <option>alt</option>
+            </select>
+        </div>
+      <!-- Menggunakan argumen statis dan dinamis -->
+      <img v-bind:src="url" v-bind:[caption.attr]="caption.text" />
+      <p>
+        Caption diberikan pada atribut <code>{{ caption.attr }}</code> dengan
+        isi "{{ caption.text }}"
+      </p>
     </div>
-
     <!-- Load script.js -->
     <script src="./script.js"></script>
   </body>

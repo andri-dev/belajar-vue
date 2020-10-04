@@ -3,6 +3,10 @@
 const app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello World!',
+    url: 'https://www.petanikode.com/img/logo.svg',
+    caption: {
+      attr: 'title',
+      text: 'Hello ini adalah caption',
+    },
   },
 });
