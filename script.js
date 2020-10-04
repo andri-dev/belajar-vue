@@ -3,10 +3,17 @@
 const app = new Vue({
   el: '#app',
   data: {
-    showBonus: true,
-    name: 'Buku Vuejs untuk Pemula',
-    cover: 'https://www.petanikode.com/img/buku/vuejs.png',
-    price: 140000,
-    qty: 1,
+    newTask: '',
+    todolists: [
+      { done: true, task: 'Belajar Vuejs di Petani Kode' },
+      { done: false, task: 'Siram tanaman di kebun' },
+      { done: false, task: 'Beli bibit kopi' },
+    ],
+  },
+  methods: {
+    addTask: function () {
+      this.todolists.push({ done: false, task: this.newTask });
+      this.newTask = '';
+    },
   },
 });
