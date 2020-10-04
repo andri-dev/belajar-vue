@@ -11,23 +11,25 @@
   <body>
     <!-- container DOM-->
     <div id="app">
-        <div class="">
-            <input type="url" v-model:value="url" placeholder="Link Gambar" /></br>
-            <input type="text" v-model:value="caption.text" placeholder="Caption untuk image" />
-            <br />
-            Berikan caption pada atribut: 
-            <select v-model:value="caption.attr">
-              <option>title</option>
-              <option>alt</option>
-            </select>
+        <fieldset>
+          <legend>Buat Artikel</legend>
+          <p><input type="text" v-model:value="title" placeholder="judul artikel" /></p>
+          <p><textarea v-model:value="content"></textarea></p>
+        </fieldset>
+    
+        <div class="preview">
+          <h1 v-text="title"></h1>
+          <hr>
+          <div v-html="content"></div>
+          <hr>
+          <p>Konten dalam plain text:</p>
+          <div v-text="content"></div>
+          <hr>
+          <p>Yang ini cuma di-render sekali:</p>
+          <div v-once>{{ content }}</div>
+          </p>
         </div>
-      <!-- Menggunakan argumen statis dan dinamis -->
-      <img v-bind:src="url" v-bind:[caption.attr]="caption.text" />
-      <p>
-        Caption diberikan pada atribut <code>{{ caption.attr }}</code> dengan
-        isi "{{ caption.text }}"
-      </p>
-    </div>
+    </div>    
     <!-- Load script.js -->
     <script src="./script.js"></script>
   </body>
