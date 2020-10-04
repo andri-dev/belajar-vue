@@ -10,8 +10,10 @@
   </head>
   <body>
     <!-- container DOM-->
-    <input type="text" v-bind:value="message" />
-    <div id="app">{{ message }}</div>
+    <div id="app">
+      <input type="text" v-model:value="message" />
+      <p>{{ message }}</p>
+    </div>
 
     <!-- Load script.js -->
     <script src="./script.js"></script>
